@@ -1,8 +1,8 @@
 package cn.edu.scu.algorithms.sort;
 
 /**
- * 快速排序
- * 前面
+ * 插入排序
+ *
  */
 public class InsertSort {
 
@@ -55,12 +55,31 @@ public class InsertSort {
         }
     }
 
+    // shell排序
+    private void sortS(int[] A) {
+        int n = A.length;
+        int temp = 0;
+        for (int dk = n/2; dk >= 1; dk /= 2) {
+            for (int i = dk; i < n; i++) {
+                if (A[i] > A[i-dk]) continue;
+                temp = A[i];
+                int j = i - dk;
+                while (temp < A[j]) {
+                    A[j + dk] = A[j];
+                    j -= dk;
+                    if (j >= -dk && j<0) break;
+                }
+                A[j + dk] = temp;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         int[] A = new int[]{3, 2, 1,2,3,1,1,3,2};
         InsertSort insertSort = new InsertSort();
 //        insertSort.sort(A);
-        insertSort.sortB(A);
-
+//        insertSort.sortB(A);
+        insertSort.sortS(A);
         for (int i = 0; i < A.length; i++) {
             System.out.println(A[i]);
         }
