@@ -40,6 +40,7 @@ public class LongestCommonPrefix_14 {
 
     }
 
+    // 找两个字符串中的最长公共前缀
     public String commonPrefix(String a, String b) {
         while (b.indexOf(a) != 0) {// b串中是否在开头位置存在子串a
             a = a.substring(0, a.length() - 1);
@@ -66,9 +67,5 @@ public class LongestCommonPrefix_14 {
         String res = new LongestCommonPrefix_14().longestCommonPrefix(strs);
         System.out.println(res);
 
-//        String a = "f";
-//        String b = a.substring(0, a.length() - 1);
-//        System.out.println(a);
-//        System.out.println(b);
     }
 }
