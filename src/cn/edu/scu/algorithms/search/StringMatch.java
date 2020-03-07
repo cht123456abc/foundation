@@ -16,8 +16,8 @@ public class StringMatch {
                 i++;
                 j++;
             } else {
-                i = i-j+2;// i要回退
-                j=1;// j也重新回到原点
+                i = i-j+1;// i要回退
+                j=0;// j也重新回到原点
             }
         }
         if (j == t.length()) {
@@ -33,7 +33,7 @@ public class StringMatch {
     private int KMP(String s, String t,int[] next) {
         int i = 0,j = 0;
         while (i < s.length() && j < t.length()) {
-            if (j == 0 || s.charAt(i) == t.charAt(j)) {
+            if (j == -1 || s.charAt(i) == t.charAt(j)) {
                 i++;
                 j++;
             } else {
@@ -64,8 +64,8 @@ public class StringMatch {
     }
 
     public static void main(String[] args) {
-        String s = "abdabdabcajdlkwjdlkajdlkaabnfkjahfbkjadfkahdkjsahjkjkhfdskjfhdskjfhdskjfdhkjfhajkfahdkjashdjksahdjksakdfjafgaksjfgsajdsajkdsakjsaghfjksahkjfsahfjksahdfjkashhdlkashdajlkhdasjhdsajhajfhajhkjabcahjkbcjkasbcjkzbnkjscbnzjkcbnskajdnbjkdabnsjkcvabnjkcasbjkcabnjkdasbndkjasndbjka";
-        String t = "jdl";
+        String s = "hello";
+        String t = "lo";
         StringMatch stringMatch = new StringMatch();
         int index = stringMatch.naiveSerach(s, t);
         int[] next = stringMatch.getNext(t);
