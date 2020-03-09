@@ -15,6 +15,15 @@ package cn.edu.scu.exercises.leetcode.eazy;
  */
 public class RemoveDuplicatesFromSortedList_83 {
 
+    class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
+    }
+
     public ListNode deleteDuplicates(ListNode head) {
         if (head == null) {
             return null;

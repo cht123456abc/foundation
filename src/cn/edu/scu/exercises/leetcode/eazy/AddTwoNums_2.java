@@ -16,6 +16,12 @@ package cn.edu.scu.exercises.leetcode.eazy;
  */
 public class AddTwoNums_2 {
 
+    class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) { val = x; }
+    }
+
     // 用dummy结点来简化代码
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummyhead = new ListNode(0);
@@ -37,8 +43,4 @@ public class AddTwoNums_2 {
     }
 }
 
-class ListNode {
-      int val;
-      ListNode next;
-      ListNode(int x) { val = x; }
-}
+
