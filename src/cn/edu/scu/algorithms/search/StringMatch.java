@@ -47,8 +47,9 @@ public class StringMatch {
         }
     }
 
+    // 由部分匹配表（Partial Match Table）向右移动一位，并且第一个位置置为-1得来的。
     private int[] getNext(String t) {
-        int[] next = new int[10000];
+        int[] next = new int[t.length()+1];
         int i=0,j=-1;
         next[0] = -1;
         while (i < t.length()) {
