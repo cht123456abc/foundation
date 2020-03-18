@@ -20,4 +20,40 @@ package cn.edu.scu.algorithms.dp;
  *      偷窃到的最高金额 = 2 + 9 + 1 = 12 。
  */
 public class HouseRubber_198 {
+
+    // 状态表示一：dp[i][0/1]:前i个房子里第i个房子偷或不偷的最大非法所得。
+    // T = O(n)
+    public int rob(int[] nums) {
+        int n = nums.length;
+        if(n == 0) return 0;
+        int[][] dp = new int[n][2];
+        dp[0][0] = 0;// 第一个房子不偷
+        dp[0][1] = nums[0];// 第一个房子偷
+        for (int i = 1; i < n; i++) {
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1]);
+            dp[i][1] = dp[i-1][0] + nums[i];
+        }
+        return Math.max(dp[n-1][0],dp[n-1][1]);
+    }
+
+    // 状态表示二：dp[i]:前i个房子里第i个房子偷的最大非法所得。
+    // T = O(n^2)
+    public int rob2(int[] nums) {
+        int n = nums.length;
+        if(n == 0) return 0;
+        if (n == 1) return nums[0];
+        int[] dp = new int[n];
+        dp[0] = nums[0];
+        dp[1] = nums[1];
+        int res = Math.max(dp[0],dp[1]);
+        for (int i = 2; i < n; i++) {
+            int max = Integer.MIN_VALUE;
+            for (int j = 0; j <= i-2; j++) {
+                if (dp[j] > max) max = dp[j];
+            }
+            dp[i] = max + nums[i];
+            if (dp[i] > res) res = dp[i];
+        }
+        return res;
+    }
 }
