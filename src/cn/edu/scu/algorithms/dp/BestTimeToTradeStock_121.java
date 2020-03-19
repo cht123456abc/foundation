@@ -22,4 +22,18 @@ package cn.edu.scu.algorithms.dp;
  * 解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
  */
 public class BestTimeToTradeStock_121 {
+
+
+    // dp[i]:前i天内当前值与最小值之差的最大值。
+    public int maxProfit(int[] prices) {
+        int n = prices.length;
+        int[] dp = new int[n+1];
+        dp[0] = 0;
+        int min = Integer.MAX_VALUE;
+        for (int i = 1; i <= n; i++) {
+            min = Math.min(min, prices[i-1]);
+            dp[i] = Math.max(dp[i - 1], prices[i-1] - min);
+        }
+        return dp[n];
+    }
 }

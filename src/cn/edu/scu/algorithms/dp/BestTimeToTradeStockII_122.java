@@ -29,4 +29,16 @@ package cn.edu.scu.algorithms.dp;
 
  */
 public class BestTimeToTradeStockII_122 {
+
+    // 该题等价于：找多个连续递增子序列
+    public int maxProfit(int[] prices) {
+        int n = prices.length;
+        if (n == 0) return 0;
+        int[] dp = new int[n];
+        dp[0] = 0;
+        for (int i = 1; i <n; i++) {
+            dp[i] = dp[i-1] + Math.max(prices[i] - prices[i-1],0);
+        }
+        return dp[n-1];
+    }
 }
