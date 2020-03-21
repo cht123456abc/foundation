@@ -47,25 +47,4 @@ public class LowestCommonAncestorOfABinarySearchTree_235 {
         else return root;
     }
 
-
-    // 递归算法，没有考虑是否是搜索树
-    public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null) return null;
-        if (root == p) return p;
-        if (root == q) return q;
-        boolean left = isExsit(root.left,p,q);
-        boolean right = isExsit(root.right,p,q);
-        if (left && right) return root;
-        if (left) return lowestCommonAncestor2(root.left,p,q);
-        if (right) return lowestCommonAncestor2(root.right,p,q);
-        return null;
-
-    }
-
-    // 判断节点是否存在与此树中
-    public boolean isExsit(TreeNode root,TreeNode p,TreeNode q) {
-        if (root == null) return false;
-        if (root == p || root == q) return true;
-        return isExsit(root.left,p,q) || isExsit(root.right,p,q);
-    }
 }
