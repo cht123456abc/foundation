@@ -1,8 +1,6 @@
-package cn.edu.scu.exercises;
+package cn.edu.scu.exercises.others;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ConstructBinaryTree {
 	public static void main(String[] args) {

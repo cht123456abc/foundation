@@ -1,4 +1,4 @@
-package cn.edu.scu.exercises;
+package cn.edu.scu.exercises.others;
 
 public class NumberOf1InBinaryNumber {
 	//查看二进制数的为1的个数统计，思想:用1来循环左移与该数做位于比较，结果不为0则该位置上有1，count++

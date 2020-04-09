@@ -1,4 +1,4 @@
-package cn.edu.scu.exercises;
+package cn.edu.scu.exercises.others;
 
 class ListNode {
 	int val;
