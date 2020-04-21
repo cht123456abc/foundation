@@ -1,6 +1,7 @@
 package cn.edu.scu.concurrent;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -8,6 +9,7 @@ public class TestCopyOnWriteArrayList {
     public static void main(String[] args) throws InterruptedException {
         List<Integer> list1 = new ArrayList();
         List<Integer> list2 = new CopyOnWriteArrayList();
+        List<Integer> list3 = Collections.synchronizedList(list1);
 
         // 测试并发时分别对ArrayList   与 CopyOnWriteArrayList的影响
         Thread[] threads = new Thread[50];
@@ -17,11 +19,11 @@ public class TestCopyOnWriteArrayList {
                 public void run() {
                     try {
                         Thread.sleep(2000);
-                        list1.add(1);
+                        list3.add(1);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    System.out.println(list1.size());
+                    System.out.println(list3.size());
                 }
             };
         }
@@ -36,7 +38,7 @@ public class TestCopyOnWriteArrayList {
             threads[i].join();
         }
 
-        System.out.println("main线程：" + list1.size());
+        System.out.println("main线程：" + list3.size());
 
     }
 }
