@@ -1,5 +1,7 @@
 package cn.edu.scu.algorithms.sort;
 
+import java.util.Arrays;
+
 /**
  * 归并排序
  */
@@ -41,10 +43,7 @@ public class MergeSort {
         int[] A = new int[]{3, 2, 1, 3, 1, 2, 1, 2, 3};
         MergeSort mergeSort = new MergeSort();
         mergeSort.sort(A);
-        for (int i = 0; i < A.length; i++) {
-            System.out.println(A[i]);
-
-        }
+        Arrays.stream(A).forEach(System.out::println);
 
     }
 }
