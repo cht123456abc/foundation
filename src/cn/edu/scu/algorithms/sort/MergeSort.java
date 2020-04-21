@@ -8,9 +8,7 @@ public class MergeSort {
     // 用一个辅助数组aux，复制A,将两段有序数组合并为一个有序数组
     private void merge(int[] A, int lo, int mid, int hi) {
         int[] aux = new int[A.length];
-        for (int i = 0; i < aux.length; i++) {
-            aux[i] = A[i];
-        }
+        System.arraycopy(A, 0, aux, 0, aux.length);
 
         int i = lo, j = mid + 1, k = i;
         for (; i <= mid && j <= hi; k++) {
@@ -25,6 +23,7 @@ public class MergeSort {
         while (j <= hi) A[k++] = aux[j++];
     }
 
+    // 分治，自顶向下
     private void sort(int[] A, int lo, int hi) {
         if (lo < hi) {
             int mid = (lo + hi) / 2;
