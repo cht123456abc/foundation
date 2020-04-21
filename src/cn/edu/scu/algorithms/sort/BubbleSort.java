@@ -15,7 +15,7 @@ public class BubbleSort {
                     flag = true;
                 }
             }
-            if (flag == false) {// 如果一次都没有交换
+            if (!flag) {// 如果一次都没有交换
                 return;
             }
         }
