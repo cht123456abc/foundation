@@ -26,17 +26,6 @@ import java.util.*;
  */
 public class BinaryTreeLevelTraverse_102 {
 
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
-
-
     // bfs解法
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
@@ -70,7 +59,7 @@ public class BinaryTreeLevelTraverse_102 {
         return res;
     }
 
-    // 递归解法
+    // dfs
     public List<List<Integer>> levelOrder1(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         traverse(root, 0, res);
@@ -79,7 +68,7 @@ public class BinaryTreeLevelTraverse_102 {
 
     }
 
-    // 带有深度信息的递归方法
+    // dfs
     public void traverse(TreeNode root, int depth, List<List<Integer>> res) {
         if (root == null) return;
         if (res.size() == depth){// 该层还没有创建数组

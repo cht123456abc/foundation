@@ -32,7 +32,7 @@ public class PascalsTriangle_118 {
         List<List<Integer>> res = new ArrayList<>();
         List<Integer> last = null;
         for (int i = 1; i <= numRows; i++) {
-            List<Integer> row = new ArrayList<>(Collections.nCopies(i,1));
+            List<Integer> row = new ArrayList<>(Collections.nCopies(i,1));// 首先令每行等于1，然后对去掉头尾的中间的数进行修改
             for (int j = 1;j < i-1; j++) {// 从第三行开始才进入此循环
                 row.set(j, last.get(j - 1) + last.get(j));
             }
