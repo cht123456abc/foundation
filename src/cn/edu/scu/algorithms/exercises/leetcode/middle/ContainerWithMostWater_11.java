@@ -19,7 +19,7 @@ package cn.edu.scu.algorithms.exercises.leetcode.middle;
  * 输入：[1,8,6,2,5,4,8,3,7]
  * 输出：49
  */
-public class ContainerWithMoseWater_11 {
+public class ContainerWithMostWater_11 {
 
     public int maxArea(int[] height) {
         // 左右双指针 每次缩小一边
