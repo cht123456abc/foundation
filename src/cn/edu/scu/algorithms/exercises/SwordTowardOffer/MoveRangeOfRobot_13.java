@@ -29,7 +29,7 @@ public class MoveRangeOfRobot_13 {
 
     // dfs + 剪枝
     public int dfs(int m,int n,int k,int r,int c,boolean[][] passed){
-        if(r < 0 || c < 0 || r >= m || c >= n || passed[r][c] == true) return 0;
+        if(r < 0 || c < 0 || r >= m || c >= n || passed[r][c]) return 0;
         if(dightsSum(r,c) > k) return 0;
         passed[r][c] = true;
         return 1 + dfs(m,n,k,r+1,c,passed)+dfs(m,n,k,r-1,c,passed)+dfs(m,n,k,r,c+1,passed)+dfs(m,n,k,r,c-1,passed);
