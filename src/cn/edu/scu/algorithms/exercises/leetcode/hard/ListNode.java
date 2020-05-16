@@ -1,0 +1,12 @@
+package cn.edu.scu.algorithms.exercises.leetcode.hard;
+
+class ListNode {
+	int val;
+	ListNode next = null;
+
+	ListNode(int val) {
+		this.val = val;
+	}
+	ListNode() {
+	}
+}
