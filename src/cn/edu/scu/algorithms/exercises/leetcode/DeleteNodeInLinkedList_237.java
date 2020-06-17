@@ -1,6 +1,6 @@
 package cn.edu.scu.algorithms.exercises.leetcode;
 
-import cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode;
+
 
 /**
  * 237. 删除链表中的节点
@@ -33,7 +33,7 @@ import cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode;
  */
 public class DeleteNodeInLinkedList_237 {
 
-    public void deleteNode(cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode node) {
+    public void deleteNode(ListNode node) {
         // node节点就是链表的一部分，采用与后一个节点相交换再删除后一个节点的做法
         if (node == null || node.next == null) return;
         node.val = node.next.val;

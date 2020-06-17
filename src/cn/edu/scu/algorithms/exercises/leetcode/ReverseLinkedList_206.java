@@ -1,6 +1,6 @@
 package cn.edu.scu.algorithms.exercises.leetcode;
 
-import cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode;
+
 
 /**
  * 206. 反转链表
@@ -16,9 +16,9 @@ import cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode;
 public class ReverseLinkedList_206 {
 
     // 递归回溯法
-    public cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode reverseList(cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode head) {
+    public ListNode reverseList(ListNode head) {
         if (head == null || head.next == null) return head;
-        cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode newHead = reverseList(head.next);
+        ListNode newHead = reverseList(head.next);
         head.next.next = head;
         head.next = null;
         return newHead;

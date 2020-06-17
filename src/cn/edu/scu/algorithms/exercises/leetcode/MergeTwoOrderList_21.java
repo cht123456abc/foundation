@@ -1,6 +1,6 @@
 package cn.edu.scu.algorithms.exercises.leetcode;
 
-import cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode;
+
 
 /**
  * 21. 合并两个有序链表
@@ -13,7 +13,7 @@ import cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode;
  */
 public class MergeTwoOrderList_21 {
 
-    public cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode mergeTwoLists(cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode l1, cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode l2) {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if(l1 == null) return l2;
         if(l2 == null) return l1;
         if(l1.val < l2.val){

@@ -1,6 +1,6 @@
 package cn.edu.scu.algorithms.exercises.leetcode;
 
-import cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode;
+
 
 /**
  * 203. 移除链表元素
@@ -14,10 +14,10 @@ import cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode;
 public class RemoveLinkedListElement_203 {
 
     // 用前指针指向dummyhead
-    public cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode removeElements(cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode head, int val) {
-        cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode pre = new cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode(0);
+    public ListNode removeElements(ListNode head, int val) {
+        ListNode pre = new ListNode(0);
         pre.next = head;
-        cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode p = head;
+        ListNode p = head;
         while (p != null) {
             if (p.val == val) {
                 if (p == head) head = head.next;
@@ -33,7 +33,7 @@ public class RemoveLinkedListElement_203 {
     }
 
     // 递归回溯法
-    public cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode removeElements1(cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode head, int val) {
+    public ListNode removeElements1(ListNode head, int val) {
         if (head == null) return null;
         head.next = removeElements(head.next, val);
         return head.val == val ? head.next : head;

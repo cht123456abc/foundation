@@ -1,6 +1,6 @@
 package cn.edu.scu.algorithms.exercises.leetcode;
 
-import cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode;
+
 
 /**
  * 141. 环形链表
@@ -39,9 +39,9 @@ import cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode;
  */
 public class LinkedListCycle_141 {
     // 快慢指针 O(S) = O(1)
-    public boolean hasCycle(cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode head) {
+    public boolean hasCycle(ListNode head) {
         if (head == null) return false;
-        cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode slow = head,fast = head.next;
+        ListNode slow = head,fast = head.next;
         while (slow != fast) {
             if (fast == null) return false;
             slow = slow.next;

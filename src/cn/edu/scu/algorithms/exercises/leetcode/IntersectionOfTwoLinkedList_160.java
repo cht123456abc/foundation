@@ -1,6 +1,6 @@
 package cn.edu.scu.algorithms.exercises.leetcode;
 
-import cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode;
+
 
 /**
  * 160. 相交链表
@@ -52,9 +52,9 @@ import cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode;
 public class IntersectionOfTwoLinkedList_160 {
 
     // 方法一，计算各自长度
-    public cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode getIntersectionNode(cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode headA, cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode headB) {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         // 先算各自链表的长度
-        cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode pa = headA, pb = headB;
+        ListNode pa = headA, pb = headB;
         int lena = 0,lenb = 0;
         while (pa != null) {
             lena++;
@@ -85,13 +85,13 @@ public class IntersectionOfTwoLinkedList_160 {
     }
 
     // 方法二
-    public cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode getIntersectionNode1(cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode headA, cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode headB) {
+    public ListNode getIntersectionNode1(ListNode headA, ListNode headB) {
         /**
          定义两个指针, 第一轮让两个到达末尾的节点指向另一个链表的头部, 最后如果相遇则为交点(在第一轮移动中恰好抹除了长度差)
          两个指针等于移动了相同的距离, 有交点就返回, 无交点就是各走了两条指针的长度
          **/
         if(headA == null || headB == null) return null;
-        cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode pA = headA, pB = headB;
+        ListNode pA = headA, pB = headB;
         // 在这里第一轮体现在pA和pB第一次到达尾部会移向另一链表的表头, 而第二轮体现在如果pA或pB相交就返回交点, 不相交最后就是null==null
         while(pA != pB) {
             pA = pA == null ? headB : pA.next;

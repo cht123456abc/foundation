@@ -67,6 +67,8 @@ public class ReorderRoutes_1466 {
             edges[v].add(new int[]{w,1});
             edges[w].add(new int[]{v,0});
         }
+
+        // bfs
         int res = 0;
         queue.add(0);
         vis[0] = true;

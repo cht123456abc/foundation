@@ -1,6 +1,6 @@
 package cn.edu.scu.algorithms.exercises.leetcode;
 
-import cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode;
+
 
 /**
  * 234. 回文链表
@@ -18,14 +18,14 @@ import cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode;
 public class IsPalindromeLinkedList_234 {
 
     // 记录头指针全局变量
-    cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode firstNode;
+    ListNode firstNode;
     // 递归回溯解法
-    public boolean isPalindrome(cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode head) {
+    public boolean isPalindrome(ListNode head) {
         firstNode = head;
         return isPal(head);
     }
 
-    public boolean isPal(cn.edu.scu.algorithms.exercises.leetcode.eazy.ListNode head) {
+    public boolean isPal(ListNode head) {
         if (head != null) {
             if (!isPal(head.next)) return false;// 回溯
             if (head.val != firstNode.val) return false;
