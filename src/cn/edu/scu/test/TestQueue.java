@@ -12,5 +12,7 @@ public class TestQueue {
         Queue<Integer> queue = Arrays.stream(list).boxed().collect(Collectors.toCollection(LinkedList::new));
         queue.forEach(System.out::println);
 
+
+
     }
 }
