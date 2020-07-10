@@ -8,14 +8,12 @@ public class Test {
 
 
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        List<Character> a = new ArrayList<>();
-
-        Character[] chars = a.toArray(new Character[0]);
-        StringBuilder sb = new StringBuilder();
-        sb.append("123");
-        sb.delete(0,1);
-        System.out.println(sb.toString());
-
+        Map<Character, Integer> map = new HashMap<>();
+        map.put('c',1);
+        map.put('h',1);
+        map.put('a',1);
+        map.put('b',1);
+        map.put('a',1);
+        map.forEach((k,v) -> System.out.println(k));
     }
 }
