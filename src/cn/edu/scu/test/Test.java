@@ -15,5 +15,6 @@ public class Test {
         map.put('b',1);
         map.put('a',1);
         map.forEach((k,v) -> System.out.println(k));
+        System.out.println(map);
     }
 }
