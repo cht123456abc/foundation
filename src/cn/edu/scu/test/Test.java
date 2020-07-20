@@ -8,13 +8,11 @@ public class Test {
 
 
     public static void main(String[] args) {
-        Map<Character, Integer> map = new HashMap<>();
-        map.put('c',1);
-        map.put('h',1);
-        map.put('a',1);
-        map.put('b',1);
-        map.put('a',1);
-        map.forEach((k,v) -> System.out.println(k));
-        System.out.println(map);
+        List<List<Integer>> list = new ArrayList<>();
+
+        Integer[][] a = list.stream().map(l -> l.toArray(new Integer[0])).toArray(Integer[][]::new);
+
+        List<int[]> res = new ArrayList<>();
+        int[][] b = res.toArray(new int[0][]);
     }
 }
