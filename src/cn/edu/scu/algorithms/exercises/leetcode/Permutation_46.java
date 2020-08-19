@@ -2,6 +2,7 @@ package cn.edu.scu.algorithms.exercises.leetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,22 +25,29 @@ import java.util.stream.Collectors;
  */
 public class Permutation_46 {
 
+    private List<List<Integer>> res = new ArrayList<>();
+    private List<Integer> A = new LinkedList<>();// 排列数组
+    private List<Integer> R = new LinkedList<>();// 剩余数组
+
     public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
-        int n = nums.length;
-        int[] permutation = new int[n];
-        dfs(res,nums,0,permutation);
+        for(int i : nums) R.add(i);// 初始化剩余数组
+        dfs();
         return res;
     }
 
-    public void dfs(List<List<Integer>> res, int[] nums, int last, int[] permutation){
-        if(last == nums.length) return;
-        for(int i = last;i < nums.length;i++){
-            permutation[last] = nums[i];
-            dfs(res,nums,last+1,permutation);
-            if(last == nums.length-1) {
-                res.add(Arrays.stream(permutation).boxed().collect(Collectors.toList()));
-            }
+    public void dfs(){
+        if(R.isEmpty()){
+            res.add(new ArrayList(A));
+            return;
+        }
+        int n = R.size();
+        for(int i = 0;i < n;i++){
+            Integer node = R.get(0);
+            A.add(node);
+            R.remove(0);
+            dfs();
+            R.add(node);
+            A.remove(A.size()-1);
         }
     }
 }

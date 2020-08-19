@@ -43,9 +43,7 @@ public class DeadLock {
     public static void main(String[] args) {
         DeadLock T = new DeadLock();
 
-        new Thread(() -> {
-            T.getA();
-        }).start();
+        new Thread(T::getA).start();
 
         new Thread(() -> {
             T.getB();

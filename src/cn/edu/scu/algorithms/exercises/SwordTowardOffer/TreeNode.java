@@ -1,11 +1,11 @@
 package cn.edu.scu.algorithms.exercises.SwordTowardOffer;
 
 class TreeNode {
-	int value;
+	int val;
 	TreeNode left;
 	TreeNode right;
 	TreeNode(int v) {
-		this.value = v;
+		this.val = v;
 	}
 
 }
