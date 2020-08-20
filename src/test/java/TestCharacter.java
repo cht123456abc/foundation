@@ -1,5 +1,3 @@
-package cn.edu.scu.test;
-
 public class TestCharacter {
 
     public static void main(String[] args) {

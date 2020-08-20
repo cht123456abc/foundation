@@ -1,5 +1,3 @@
-package cn.edu.scu.test;
-
 import java.util.Arrays;
 import java.util.List;
 

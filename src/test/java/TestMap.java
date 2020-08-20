@@ -1,5 +1,3 @@
-package cn.edu.scu.test;
-
 import cn.edu.scu.algorithms.tree.TreeNode;
 
 import java.util.HashMap;
