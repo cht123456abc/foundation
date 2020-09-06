@@ -1,4 +1,4 @@
-package main.java.cn.edu.scu.algorithms.exercises.SwordTowardOffer;
+package cn.edu.scu.algorithms.exercises.SwordTowardOffer;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
