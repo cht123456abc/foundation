@@ -1,5 +1,3 @@
-package cn.edu.scu.test;
-
 /**
  * 测试java的引用传递
  */

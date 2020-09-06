@@ -1,12 +1,6 @@
-package cn.edu.scu.test;
-
-import cn.edu.scu.utils.MatchUtil;
-
-import java.util.*;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Test
 {

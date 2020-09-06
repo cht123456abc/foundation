@@ -1,6 +1,6 @@
-package cn.edu.scu.test;
-
-import java.util.*;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.stream.Collectors;
 
 public class TestQueue {
