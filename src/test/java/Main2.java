@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * 战术遮挡
  * 时间限制： 3000MS
@@ -29,6 +31,22 @@
  * 4
  */
 public class Main2 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()) {
+            int n = scanner.nextInt();
+
+            int[] list = new int[n];
+            for (int i = 0; i < n; i++) {
+                list[i] = scanner.nextInt();
+            }
+
+
+        }
+
+    }
+
 
 
 }
