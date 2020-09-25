@@ -1,3 +1,5 @@
+package cn.edu.scu.exam;
+
 import java.util.Scanner;
 
 /**

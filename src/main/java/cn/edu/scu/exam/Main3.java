@@ -1,3 +1,5 @@
+package cn.edu.scu.exam;
+
 /**
  * 报数问题
  * 时间限制： 3000MS
