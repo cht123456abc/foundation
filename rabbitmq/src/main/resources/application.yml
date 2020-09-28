@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: springboot-rabbit
+
+  rabbitmq:
+    host: 192.168.31.14
+    port: 5673
+    username: ljqcUser
+    password: ljqc1234
+    requested-heartbeat: 0
+    listener:
+      simple:
+        prefetch: 1
+        retry:
+          enabled: true
