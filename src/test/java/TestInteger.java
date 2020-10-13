@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 public class TestInteger {
     public static void main(String[] args) {
         Integer a = 123;
@@ -16,4 +18,13 @@ public class TestInteger {
         System.out.println(e == f);
 
     }
+
+    @Test
+    public void testMaxValue() {
+        long a = Integer.MAX_VALUE;
+        int b = Integer.MAX_VALUE;
+        System.out.println(a + 1);
+        System.out.println(b + 1);
+    }
+
 }
