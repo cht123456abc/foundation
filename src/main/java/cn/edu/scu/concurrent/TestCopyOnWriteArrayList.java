@@ -14,18 +14,15 @@ public class TestCopyOnWriteArrayList {
         // 测试并发时分别对ArrayList   与 CopyOnWriteArrayList的影响
         Thread[] threads = new Thread[50];
         for (int i = 0; i < threads.length; i++) {
-            threads[i] = new Thread() {
-                @Override
-                public void run() {
-                    try {
-                        Thread.sleep(2000);
-                        list3.add(1);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    System.out.println(list3.size());
+            threads[i] = new Thread(() -> {
+                try {
+                    Thread.sleep(2000);
+                    list3.add(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            };
+                System.out.println(list3.size());
+            });
         }
 
         // 开启所有线程
