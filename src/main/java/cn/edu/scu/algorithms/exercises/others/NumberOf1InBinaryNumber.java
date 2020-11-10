@@ -1,7 +1,7 @@
 package cn.edu.scu.algorithms.exercises.others;
 
 public class NumberOf1InBinaryNumber {
-	//查看二进制数的为1的个数统计，思想:用1来循环左移与该数做位于比较，结果不为0则该位置上有1，count++
+	//查看二进制数的为1的个数统计，思想:用1来循环左移与该数做位与比较，结果不为0则该位置上有1，count++
     public static int NumberOf1(int n) {
     	int count = 0;
     	int flag = 1;

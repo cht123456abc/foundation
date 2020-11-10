@@ -1,6 +1,4 @@
-package cn.edu.scu.algorithms.exercises.SwordTowardOffer;
-
-import sun.reflect.generics.tree.Tree;
+package cn.edu.scu.algorithms.exercises.sword_toward_offer;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

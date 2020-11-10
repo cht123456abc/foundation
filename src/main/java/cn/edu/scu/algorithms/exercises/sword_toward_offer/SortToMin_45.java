@@ -1,8 +1,6 @@
-package cn.edu.scu.algorithms.exercises.SwordTowardOffer;
+package cn.edu.scu.algorithms.exercises.sword_toward_offer;
 
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.stream.Collectors;
 
 /**
  * 剑指 Offer 45. 把数组排成最小的数

@@ -1,4 +1,4 @@
-package cn.edu.scu.algorithms.exercises.SwordTowardOffer;
+package cn.edu.scu.algorithms.exercises.sword_toward_offer;
 
 /**
  * 面试题13. 机器人的运动范围

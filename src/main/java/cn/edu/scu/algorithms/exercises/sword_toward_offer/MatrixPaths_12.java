@@ -1,4 +1,4 @@
-package cn.edu.scu.algorithms.exercises.SwordTowardOffer;
+package cn.edu.scu.algorithms.exercises.sword_toward_offer;
 
 public class MatrixPaths_12 {
 

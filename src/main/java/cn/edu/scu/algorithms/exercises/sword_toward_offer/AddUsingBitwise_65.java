@@ -1,4 +1,4 @@
-package cn.edu.scu.algorithms.exercises.SwordTowardOffer;
+package cn.edu.scu.algorithms.exercises.sword_toward_offer;
 
 /**
  * 剑指 Offer 65. 不用加减乘除做加法

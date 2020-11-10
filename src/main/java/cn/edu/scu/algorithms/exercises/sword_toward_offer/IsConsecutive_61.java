@@ -1,7 +1,6 @@
-package cn.edu.scu.algorithms.exercises.SwordTowardOffer;
+package cn.edu.scu.algorithms.exercises.sword_toward_offer;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.stream.Collectors;
 
 /**

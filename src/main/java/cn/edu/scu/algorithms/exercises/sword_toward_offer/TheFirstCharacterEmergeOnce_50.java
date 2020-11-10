@@ -1,8 +1,7 @@
-package cn.edu.scu.algorithms.exercises.SwordTowardOffer;
+package cn.edu.scu.algorithms.exercises.sword_toward_offer;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Queue;
 
 /**
  * 剑指 Offer 50. 第一个只出现一次的字符

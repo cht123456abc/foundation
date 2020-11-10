@@ -1,6 +1,4 @@
-package cn.edu.scu.algorithms.exercises.SwordTowardOffer;
-
-import java.util.Arrays;
+package cn.edu.scu.algorithms.exercises.sword_toward_offer;
 
 /**
  * 剑指 Offer 62. 圆圈中最后剩下的数字

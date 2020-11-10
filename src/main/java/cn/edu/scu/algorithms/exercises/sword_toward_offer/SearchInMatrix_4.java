@@ -1,4 +1,4 @@
-package cn.edu.scu.algorithms.exercises.SwordTowardOffer;
+package cn.edu.scu.algorithms.exercises.sword_toward_offer;
 
 /**
  * 面试题04. 二维数组中的查找

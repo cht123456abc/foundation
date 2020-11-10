@@ -1,4 +1,4 @@
-package cn.edu.scu.algorithms.exercises.SwordTowardOffer;
+package cn.edu.scu.algorithms.exercises.sword_toward_offer;
 
 /**
  * 剑指 Offer 56 - II. 数组中数字出现的次数 II

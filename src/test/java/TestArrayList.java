@@ -1,7 +1,15 @@
+import org.junit.Test;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TestArrayList {
+
+    @Test
+    public void testInsert() {
+        int[] A = new int[5];
+    }
 
     public static void main(String[] args) {
 
