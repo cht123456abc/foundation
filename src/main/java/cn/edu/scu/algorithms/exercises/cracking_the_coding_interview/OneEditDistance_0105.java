@@ -47,7 +47,7 @@ public class OneEditDistance_0105 {
     }
 
 
-    // 动态规划
+    // 动态规划 最小编辑距离
     public boolean oneEditAway1(String first, String second) {
         // dp[i][j] : 匹配字符串1中i位置时，字符串2j位置时需要编辑的次数
 
