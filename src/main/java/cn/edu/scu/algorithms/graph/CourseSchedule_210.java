@@ -69,7 +69,7 @@ public class CourseSchedule_210 {
     }
 
     public boolean dfs(Map<Integer,List<Integer>> graph,int[] visited,int index,int[] topo){
-        if(visited[index] == 1) return false;// 遇到正在遍历的路径
+        if(visited[index] == 1) return false;// 遇到正在遍历的路径 -》即有环
         if(visited[index] == 2) return true;// 遇到已经遍历过的点
         visited[index] = 1;
         List<Integer> out = graph.get(index);
