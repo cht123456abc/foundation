@@ -44,7 +44,7 @@ public class BestTimeToTradeStockIII_123 {
     public int maxProfit1(int[] prices) {
         int n = prices.length;
         if (n == 0 || n == 1) return 0;
-        Queue<Integer> maxQ = new PriorityQueue<>((a,b) -> b.compareTo(a));
+        Queue<Integer> maxQ = new PriorityQueue<>(Comparator.reverseOrder());
         int max_p = 0, min_p = 0;
         while (max_p < n-1) {
             int minus = prices[max_p+1] - prices[max_p];
