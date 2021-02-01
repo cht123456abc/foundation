@@ -44,7 +44,7 @@ public class FreedomTrail_514 {
         int m = ring.length();
         int n = key.length();
         // 初始化备忘录
-        dp = new int[m + 1][n + 1];
+        dp = new int[m][n];
         // 优化：建立ring的倒排索引
         map = new HashMap<>();
         for (int i = 0; i < ring.length(); i++) {
@@ -84,7 +84,7 @@ public class FreedomTrail_514 {
     public int findRotateSteps2(String ring, String key) {
         int n = ring.length();
         int m = key.length();
-        List<Integer>[] pos = new List[26];
+        List<Integer>[] pos = new List[26];// ring的倒排索引
         for (int i = 0; i < 26; i++) {
             pos[i] = new ArrayList<>();
         }
@@ -93,11 +93,13 @@ public class FreedomTrail_514 {
         }
         int[][] dp = new int[m][n];
         for (int i = 0; i < m; i++) {
-            Arrays.fill(dp[i], 0x3f3f3f);
+            Arrays.fill(dp[i], 0x3f3f3f);// 作最大值
         }
+        // 初始化
         for (int i : pos[key.charAt(0) - 'a']) {
             dp[0][i] = Math.min(i, n - i) + 1;
         }
+        // 状态转移方程及递推顺序
         for (int i = 1; i < m; i++) {
             for (int j : pos[key.charAt(i) - 'a']) {
                 for (int k : pos[key.charAt(i - 1) - 'a']) {

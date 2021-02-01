@@ -15,7 +15,7 @@ public class UnionFind {
         }
     }
 
-    // 找到跟节点
+    // 寻找根节点，并且在寻找过程中将所有节点的值归类为根节点的值
     public int find(int x) {
         while(x != parent[x]){
             parent[x] = parent[parent[x]];// 隔代压缩
