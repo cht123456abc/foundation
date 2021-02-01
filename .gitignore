@@ -1,2 +1,5 @@
 /build/
 /.idea/
+/target/
+/out/production/foundation/META-INF/foundation.kotlin_module
+/foundation.iml
