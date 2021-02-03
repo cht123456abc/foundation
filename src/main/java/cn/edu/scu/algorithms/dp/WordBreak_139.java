@@ -1,5 +1,6 @@
 package cn.edu.scu.algorithms.dp;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -31,7 +32,7 @@ import java.util.stream.Collectors;
 public class WordBreak_139 {
 
     public boolean wordBreak(String s, List<String> wordDict) {
-        Set<String> dict = wordDict.stream().collect(Collectors.toSet());
+        Set<String> dict = new HashSet<>(wordDict);
         // 可以类比于背包问题
         int n = s.length();
         // dp[i] 表示 s 中以 i - 1 结尾的字符串是否可被 wordDict 拆分

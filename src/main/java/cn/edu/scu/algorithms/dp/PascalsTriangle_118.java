@@ -43,9 +43,6 @@ public class PascalsTriangle_118 {
     }
 
     public static void main(String[] args) {
-//        List<Integer> l = new ArrayList<>(3);
-        List<Integer> l = new ArrayList<>(Collections.nCopies(2, 1));
-        l.add(1);
-        l.stream().forEach(System.out::println);
+        new PascalsTriangle_118().generate(4).forEach(System.out::println);
     }
 }
