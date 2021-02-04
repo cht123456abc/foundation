@@ -40,7 +40,7 @@ public class OneEditDistance_0105 {
                 if (flag) return false;
                 flag = true;
                 // 继续比较后续子串
-                if (lenA != lenB) i--;// 第一个字符串不变
+                if (lenA < lenB) i--;// 第一个字符串不变
             }
         }
         return true;

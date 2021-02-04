@@ -33,9 +33,29 @@ import java.util.Queue;
  */
 public class BestTimeToTradeStockIII_123 {
 
-    // TODO: 2020/3/19 待解决
+    /**
+     * 任何时候都只可能存在5个状态:不进行任何操作,buy1,sell1,buy2,sell2
+     *
+     * 不进行任何操作时，就不管。
+     * buy1：只进行第一次买入的最大利润
+     * sell1：只进行第一次卖出的最大利润
+     * buy2：进行第二次买入的最大利润
+     * sell2：进行第二次卖出的最大利润
+     * @param prices
+     * @return
+     */
     public int maxProfit(int[] prices) {
-        return 0;
+        int n = prices.length;
+        int buy1 = -prices[0], sell1 = 0;
+        int buy2 = -prices[0], sell2 = 0;
+        for (int i = 1; i < n; ++i) {
+            buy1 = Math.max(buy1, -prices[i]);
+            sell1 = Math.max(sell1, buy1 + prices[i]);
+            buy2 = Math.max(buy2, sell1 - prices[i]);
+            sell2 = Math.max(sell2, buy2 + prices[i]);
+        }
+        return sell2;
+
     }
 
 
@@ -66,8 +86,9 @@ public class BestTimeToTradeStockIII_123 {
     }
 
     public static void main(String[] args) {
-        int[] prices = new int[]{3, 3, 5, 0, 0, 3, 1, 4};
+        int[] prices = new int[]{3, 3, 6, 0, 0, 3, 1, 4};
         System.out.println(new BestTimeToTradeStockIII_123().maxProfit(prices));
+        System.out.println(new BestTimeToTradeStockIII_123().maxProfit1(prices));
 
     }
 }

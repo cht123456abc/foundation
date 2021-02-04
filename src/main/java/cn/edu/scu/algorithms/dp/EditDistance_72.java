@@ -56,7 +56,7 @@ public class EditDistance_72 {
             dp[i][0] = i;
         }
 
-        // 递推顺序和状态转移方程
+        // 确定状态转移方程和转移顺序
         for (int i = 1; i <= lenA; i++) {
             for (int j = 1; j <= lenB; j++) {
                 if (first.charAt(i - 1) == second.charAt(j - 1)) {

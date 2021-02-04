@@ -27,7 +27,7 @@ public class Coin {
     int[] coins = new int[]{25,10,5,1};
     public int waysToChange(int n) {
         // TODO: 2020/4/23 学习一下背包问题
-        int[] dp = new int[n+1];
+        int[] dp = new int[n+1];// 剩余
         dp[0] = 1;
         for (int i = 0; i < 4; i++) {
             int coin = coins[i];

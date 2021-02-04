@@ -63,7 +63,7 @@ public class LongestPalindromicSubstring_5 {
         result = s.substring(limit[0], limit[1]);
         return result;
     }
-    public int indexOf(char[] ch, int low, int[] limit) {
+    private int indexOf(char[] ch, int low, int[] limit) {
         // 优化：去除重复元素
         int high = low + 1;
         while (high < ch.length && ch[high] == ch[low]) {// 先向右考虑相同元素
