@@ -37,23 +37,15 @@ public class HouseRubber_198 {
     }
 
     // 状态表示二：dp[i]:前i个房子里第i个房子偷的最大非法所得。
-    // T = O(n^2)
-    public int rob2(int[] nums) {
+    // T = O(n)
+    public int rob1(int[] nums) {
         int n = nums.length;
-        if(n == 0) return 0;
-        if (n == 1) return nums[0];
-        int[] dp = new int[n];
-        dp[0] = nums[0];
-        dp[1] = nums[1];
-        int res = Math.max(dp[0],dp[1]);
-        for (int i = 2; i < n; i++) {
-            int max = Integer.MIN_VALUE;
-            for (int j = 0; j <= i-2; j++) {
-                if (dp[j] > max) max = dp[j];
-            }
-            dp[i] = max + nums[i];
-            if (dp[i] > res) res = dp[i];
+
+        int[] dp = new int[n+2];
+        dp[0] = 0;dp[1] = 0;
+        for(int i = 2;i < n+2;i++){
+            dp[i] = Math.max(dp[i-2] + nums[i-2],dp[i-1]);
         }
-        return res;
+        return dp[n+1];
     }
 }
