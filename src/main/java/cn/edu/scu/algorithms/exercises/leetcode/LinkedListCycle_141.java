@@ -43,10 +43,9 @@ public class LinkedListCycle_141 {
         if (head == null) return false;
         ListNode slow = head,fast = head.next;
         while (slow != fast) {
-            if (fast == null) return false;
+            if (fast == null || fast.next == null) return false;
             slow = slow.next;
-            if (fast.next != null) fast = fast.next.next;
-            else return false;
+            fast = fast.next.next;
         }
         return true;
     }
