@@ -24,7 +24,7 @@ public class MaximalSquare_221 {
         int m = matrix[0].length;
         if (m == 0) return 0;
         int len = 0;
-        int[][] dp = new int[n][m];
+        int[][] dp = new int[n][m];// 以i,j为正方形右下角能形成正方形的最大边长
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (matrix[i][j] == '1') {

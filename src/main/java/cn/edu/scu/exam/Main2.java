@@ -1,54 +1,90 @@
 package cn.edu.scu.exam;
 
+
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 /**
- * 战术遮挡
- * 时间限制： 3000MS
- * 内存限制： 589824KB
- * 题目描述：
- * 人的视力不能看到掩体之后的事物，在一场战争中，我们希望对方尽可能的低估我方的战斗力这样才能出其不意。
- *
- * 某个军事参谋效仿孙膑，把某些小规模部队隐藏在大规模部队中，这样，就使得军队数量看起来变少了。
- *
- * 已知，如果某部队A的人数小于等于另一支部队B人数的1/3，则可以将A藏于B中，且不被人发现。不支持嵌套，例如A小于B的三分之一，可将A藏于B，如果又存在B是C的三分之一，不可再将B藏于C。
- *
- * 现在已知我方共有n支部队，且知道每支部队的人数，请问，在最优方案下，我们暴露给敌人的部队数量有几支。
- *
- *
- *
- * 输入描述
- * 输入第一行包含一个正整数n，表示我方有n支部队。(1<=n<=50000)
- *
- * 第二行有n个整数，表示每支部队的人数，中间用空格隔开。(1<=a_i<=10^8)
- *
- * 输出描述
- * 输出仅包含一个整数，表示最少的游戏局数。
- *
- *
- * 样例输入
- * 5
- * 2 6 7 7 10
- * 样例输出
- * 4
+ * 通过前序和中序数组构成的树，并层序打印这棵树
  */
 public class Main2 {
 
+    static class TreeNode {
+        public char val;
+        public TreeNode left;
+        public TreeNode right;
+
+        public TreeNode(char x) {
+            val = x;
+        }
+
+        public TreeNode() {
+
+        }
+    }
+
+    // 构造二叉树 + bfs层次遍历
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNext()) {
-            int n = scanner.nextInt();
+            String line = scanner.nextLine();
 
-            int[] list = new int[n];
-            for (int i = 0; i < n; i++) {
-                list[i] = scanner.nextInt();
-            }
+            String[] two = line.split(" ");
+//            System.out.println(two[0]);
+//            System.out.println(two[1]);
 
+            char[] pre = two[0].toCharArray();
+            char[] in = two[1].toCharArray();
 
+            // 构造二叉树
+            TreeNode root = construct(pre, in);
+
+            // 层序遍历二叉树
+            String res = levelTraverse(root);
+
+            // 输出结果
+            System.out.println(res);
         }
 
     }
 
+    private static String levelTraverse(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        String res = "";
+        while (!queue.isEmpty()) {
+            TreeNode head = queue.poll();
+            res = res + head.val;
+            if(head.left != null){
+                queue.offer(head.left);
+            }
+            if (head.right != null) {
+                queue.offer(head.right);
+            }
+        }
+        return res;
+    }
+
+
+    private static TreeNode construct(char[] pre, char[] in) {
+        return build(pre,0,pre.length-1,in,0,in.length-1);
+    }
+
+    private static TreeNode build(char[] preorder, int prelo, int prehi, char[] inorder, int inlo, int inhi){
+        if(prelo > prehi || inlo > inhi) return null;
+        char root_val = preorder[prelo];
+        TreeNode root = new TreeNode(root_val);
+        // 在中序数组中找到root_val的位置
+        int pos = -1;
+        for(int i = inlo;i <= inhi;i++){
+            if(root_val == inorder[i]) pos = i;
+        }
+        int len = pos - inlo;
+        root.left = build(preorder,prelo+1,prelo+len,inorder,inlo,pos-1);
+        root.right = build(preorder,prelo+len+1,prehi,inorder,pos+1,inhi);
+        return root;
+    }
 
 
 }
