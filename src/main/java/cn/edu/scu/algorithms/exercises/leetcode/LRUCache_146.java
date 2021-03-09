@@ -21,18 +21,17 @@ public class LRUCache_146 {
 
     // 方法三 用LinkedHashMap 实现自定义LRU缓存结构
     class LRU<K,V> extends LinkedHashMap<K,V> {
-        int cap;
+        private int cap;
 
         public LRU(int cap) {
-            super(cap, (float) 0.75,true);
+            super(cap, 0.75F,true);
             this.cap = cap;
         }
 
         @Override
         protected boolean removeEldestEntry(Map.Entry eldest) {
             // 自实现删除eldest的condition
-            if(this.size() > cap) return true;
-            else return false;
+            return this.size() > cap;
         }
     }
 
@@ -43,8 +42,7 @@ public class LRUCache_146 {
     }
 
     public int get(int key) {
-        if (!lru.containsKey(key)) return -1;
-        return lru.get(key);
+        return lru.getOrDefault(key, -1);
     }
 
     public void put(int key, int value) {
