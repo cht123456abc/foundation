@@ -16,6 +16,28 @@ package cn.edu.scu.algorithms.dp;
  */
 public class LongestPalindromicSubstring_5 {
 
+    // dp[i][j]
+    public int getLongestPalindrome(String A, int n) {
+        if (n < 1) return 0;
+        int[][] dp = new int[n][n];
+        char[] S = A.toCharArray();
+
+        // 表右上顺序遍历（逆转态转移顺序）
+        int res = Integer.MIN_VALUE;
+        for (int j = 0; j < n; j++) {
+            dp[j][j] = 1;
+            for (int i = 0; i < j; i++) {
+                if(S[i] == S[j]) {
+                    if(i+1 > j-1) dp[i][j] = 2;
+                    else dp[i][j] = dp[i+1][j-1] + 2;
+                    res = Math.max(res, dp[i][j]);
+                }
+
+            }
+        }
+        return res;
+    }
+
     // 对于字符串的dp，多数用二维数组。
     // 对于动态规划：看题目能否用动态规划来做，看结构是否有递推关系。
     // 关键一：状态表达式的确定
@@ -50,4 +72,6 @@ public class LongestPalindromicSubstring_5 {
         }
         return s.substring(begin, begin + maxLen);
     }
+
+
 }
