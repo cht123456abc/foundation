@@ -24,7 +24,7 @@ public class LRUCache_146 {
         private int cap;
 
         public LRU(int cap) {
-            super(cap, 0.75F,true);
+            super(cap, 0.75f,true);
             this.cap = cap;
         }
 
