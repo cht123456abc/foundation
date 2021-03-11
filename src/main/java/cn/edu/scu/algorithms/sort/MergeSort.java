@@ -7,17 +7,18 @@ import java.util.Arrays;
  */
 public class MergeSort {
 
-    // 用一个辅助数组aux，复制A,将两段有序数组合并为一个有序数组
+    // 将两段有序数组合并为一个有序数组
     private void merge(int[] A, int lo, int mid, int hi) {
-        int[] aux = new int[A.length];
+        int[] aux = new int[A.length];    // 用一个辅助数组aux，复制A,
         System.arraycopy(A, 0, aux, 0, aux.length);
 
-        int i = lo, j = mid + 1, k = i;
-        for (; i <= mid && j <= hi; k++) {
+        int i = lo, j = mid + 1;
+        int k = lo;
+        while(i <= mid && j <= hi){
             if (aux[i] <= aux[j]) {
-                A[k] = aux[i++];
+                A[k++] = aux[i++];
             } else {
-                A[k] = aux[j++];
+                A[k++] = aux[j++];
             }
 
         }

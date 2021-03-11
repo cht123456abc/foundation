@@ -5,6 +5,7 @@ package cn.edu.scu.algorithms.sort;
  */
 public class SelectSort {
 
+    // 每次排序选择最小的一个元素交换到数组最前面
     private void sort(int[] A) {
         for (int i = 0; i < A.length - 1; i++) {
             int min = i;
