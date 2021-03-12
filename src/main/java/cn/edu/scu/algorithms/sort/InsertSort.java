@@ -6,6 +6,7 @@ package cn.edu.scu.algorithms.sort;
  */
 public class InsertSort {
 
+    // 每次将后续元素插入到前面已排序元素中
     private void sort(int[] A) {
         if (A.length <= 0) {
             return;
