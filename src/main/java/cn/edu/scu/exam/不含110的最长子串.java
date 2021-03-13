@@ -28,7 +28,7 @@ import java.util.Scanner;
  * 提示
  * 在样例中，第2个字符到第9个字符组成的子串10101011为不包含110的最长子串，其长度为8。
  */
-public class Main {
+public class 不含110的最长子串 {
 
     public static void main(String[] args) {
 

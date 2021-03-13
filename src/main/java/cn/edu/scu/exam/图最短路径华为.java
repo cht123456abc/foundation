@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 图
  */
-public class Main3 {
+public class 图最短路径华为 {
 
     // 构造图 + 亲和互斥剪枝 ，最终求最小值
     public static void main(String[] args) {
