@@ -6,7 +6,9 @@ public class Test1 {
 
 
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>();
-        int[] a = list.stream().mapToInt(Integer::intValue).toArray();
+
+        int a = 170 + (3*91) + (270) + 160 + 87 + 172 + 78 + 4*85;
+        int b = 18;
+        System.out.println((float) a / b);
     }
 }
