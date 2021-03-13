@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * bfs 最短路径问题
  */
-public class Main5 {
+public class BFS最短路 {
 
     public static void main(String[] args) {
 

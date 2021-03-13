@@ -1,5 +1,6 @@
 package cn.edu.scu.exam;
 
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 /**
@@ -29,14 +30,37 @@ import java.util.Scanner;
  * 94.73
  * 3.41
  */
-public class Main4 {
+public class 数列和 {
 
     public static void main(String[] args) {
 
 
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNextLine()) {
+            NumberFormat numberFormat = NumberFormat.getInstance();
+            numberFormat.setMaximumFractionDigits(2);
+            String scan = scanner.nextLine();
+            String[] ss = scan.split(" ");
+            int a0 = Integer.parseInt(ss[0]);
+            if (a0 == 0) {
+                System.out.println(numberFormat.format(a0));
+                return;
+            }
+            int m = Integer.parseInt(ss[1]);
 
+            int i = 0;
+            double cur = a0;
+            double pre = 0;
+            double res = a0;
+            while (i < m-1) {
+                pre = cur;
+                cur = Math.sqrt(pre);
+                res += cur;
+                i++;
+            }
+
+
+            System.out.println(numberFormat.format(res));
         }
     }
 }
