@@ -103,6 +103,7 @@ public class 公司食堂 {
 
             }
 
+
             for (Integer r : res) {
                 bufferedWriter.write(r.toString());
                 bufferedWriter.newLine();
