@@ -47,6 +47,7 @@ public class StringMatch {
         }
     }
 
+    // 最大公共前后缀得出部分匹配表
     // 由部分匹配表（Partial Match Table）向右移动一位，并且第一个位置置为-1得来的。
     private int[] getNext(String t) {
         int[] next = new int[t.length()+1];
