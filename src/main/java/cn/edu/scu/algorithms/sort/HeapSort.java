@@ -9,6 +9,7 @@ public class HeapSort {
 
     // 建立大顶堆
     private void buildMaxHeap(int[] A, int len) {
+        // 从数组一半的位置开始，逐步往上，进行向下调整操作
         for (int i = len / 2; i > 0; i--) {
             adjustDown(A, i, len);
         }
@@ -16,13 +17,14 @@ public class HeapSort {
 
     // 将元素k向下进行调整
     private void adjustDown(int[] A, int k, int len) {
-        A[0] = A[k];// A[0]暂存
+        A[0] = A[k];// A[0]暂存，用于交换
+        // 从元素k开始向下调整
         for (int i = 2 * k; i <= len; i *= 2) {
-            if (i < len && A[i] < A[i + 1]) {
+            if (i < len && A[i] < A[i + 1]) {// A[i]表示k的左子节点，A[i+1]表示k的右子节点
                 i++;
             }
-            if (A[0] >= A[i]) break;
-            else {
+            if (A[0] >= A[i]) break;// 表示 k到k的左右子节点的大小关系是正确的。
+            else {// 一旦大小关系不对，就将该子节点与父节点对换
                 A[k] = A[i];
                 k = i;
             }
