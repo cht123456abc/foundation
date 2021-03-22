@@ -1,10 +1,8 @@
 package cn.edu.scu.exam;
 
 import cn.edu.scu.algorithms.tree.TreeNode;
-import sun.jvm.hotspot.runtime.VM;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class 之字形层序遍历 {
 

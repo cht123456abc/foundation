@@ -23,4 +23,17 @@ public class ReverseLinkedList_206 {
         head.next = null;
         return newHead;
     }
+
+    // 简单
+    public ListNode ReverseList(ListNode head) {
+        ListNode pre = null;
+        ListNode p = head;
+        while(p != null){
+            ListNode next = p.next;
+            p.next = pre;
+            pre = p;
+            p = next;
+        }
+        return pre;
+    }
 }
