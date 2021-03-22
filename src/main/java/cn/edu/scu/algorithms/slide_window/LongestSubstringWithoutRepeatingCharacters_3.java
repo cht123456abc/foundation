@@ -58,11 +58,10 @@ public class LongestSubstringWithoutRepeatingCharacters_3 {
         while (right < s.length()) {
             char c = s.charAt(right);
             int last_index = window.indexOf(c);
+            window.add(c);
             if (last_index >= 0) {// 如果存在当前元素
                 window = window.subList(last_index+1, window.size());
-                window.add(c);
             }else{// 如果不存在当前元素
-                window.add(c);
                 max = Math.max(max,window.size());
             }
             right++;

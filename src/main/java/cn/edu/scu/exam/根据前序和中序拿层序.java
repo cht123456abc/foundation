@@ -8,7 +8,7 @@ import java.util.Scanner;
 /**
  * 通过前序和中序数组构成的树，并层序打印这棵树
  */
-public class Main2 {
+public class 根据前序和中序拿层序 {
 
     static class TreeNode {
         public char val;

@@ -3,16 +3,7 @@ package cn.edu.scu.gof.proxy.dynamicProxy;
 public class RealStar implements Star {
 
     public void sing() {
-        System.out.println("RealStar.sing()");
+        System.out.println("明星唱歌");
     }
 
-    @Override
-    public void collectMoney() {
-
-    }
-
-    @Override
-    public void signContract() {
-
-    }
 }
