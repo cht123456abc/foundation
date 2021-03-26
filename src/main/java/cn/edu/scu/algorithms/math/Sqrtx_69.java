@@ -21,12 +21,17 @@ package cn.edu.scu.algorithms.math;
  */
 public class Sqrtx_69 {
 
-    public int mySqrt(int x) {
+    public static void main(String[] args) {
+        System.out.println(new Sqrtx_69().mySqrt(10));
+    }
+
+    public int mySqrt(int y) {
         // 牛顿法
-        long y = x;
-        while(y*y - x > 1e-3){
-            y = (y + x/y) / 2;
+        long x = y;
+        while(x*x - y > 1e-3){
+            x = (x + y / x) / 2;
         }
-        return (int)y;
+        return (int) x;
+
     }
 }
