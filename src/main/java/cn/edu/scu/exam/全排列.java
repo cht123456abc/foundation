@@ -33,8 +33,9 @@ public class 全排列 {
 
     public ArrayList<String> Permutation(String str) {
 
-        // 用一个map来表示字符集合
-        Map<String, Integer> map = new ConcurrentHashMap<>();
+        // 递归回溯法
+        // 用一个map来表示字符集合，并能解决重复字符问题
+        Map<String, Integer> map = new ConcurrentHashMap<>();// 需要在遍历集合的时候进行集合的增删操作，这里用ConcurrentHashMap
         for (char c : str.toCharArray()) {
             map.put(String.valueOf(c), map.getOrDefault(String.valueOf(c), 0) + 1);
         }
@@ -53,7 +54,6 @@ public class 全排列 {
             res.add(re);
             return;
         }
-        // 这里会在遍历map的时候进行增删操作，导致hashmap出现ConcurrentModificationException。所以用ConcurrentHashMap
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             String key = entry.getKey();
             Integer value = entry.getValue();
