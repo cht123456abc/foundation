@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -7,8 +8,8 @@ public class Test1 {
 
     public static void main(String[] args) {
 
-        List<Integer> res = new ArrayList<>();
+        LinkedList<Integer> list = new LinkedList<>();
 
-        res.stream().mapToInt(Integer::intValue).toArray();
+        list.peekLast();
     }
 }
