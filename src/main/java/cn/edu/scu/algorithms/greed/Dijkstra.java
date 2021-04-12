@@ -7,18 +7,15 @@ public class Dijkstra {
 
 
     /**
-     *
+     * dijkstra单源最短路径
      * @param graph 用邻接矩阵表示的图
+     * @param visited 已访问过的顶点数组
+     * @param dist start到各个顶点的距离 无边为∞
      * @param start 起点
      * @return start到其余所有顶点的最短距离
      */
-    public int[] dijkstra(int[][] graph, int start) {
+    public int[] dijkstra(int[][] graph, boolean[] visited,int[] dist,int start) {
         int n = graph.length;
-        boolean[] visited = new boolean[n];// 已访问过的顶点
-        int[] dist = new int[n];// start到其余各点的最短距离，没有边为∞
-
-        // 初始化dist
-        System.arraycopy(graph[start], 0, dist, 0, n);
         visited[start] = true;
 
         // 外层循环遍历每个节点
@@ -64,9 +61,15 @@ public class Dijkstra {
             }
             System.out.println();
         }
-        int[] dist = dijkstra.dijkstra(graph, 1);
+        int start  = 1;
+        int[] dist = new int[n];
+        // 初始化dist
+        System.arraycopy(graph[start], 0, dist, 0, n);
+        boolean[] visited = new boolean[n];
+
+        int[] res = dijkstra.dijkstra(graph,visited,dist,start);
         System.out.println();
-        for (int i : dist) {
+        for (int i : res) {
             System.out.println(i);
         }
     }
