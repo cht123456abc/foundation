@@ -7,8 +7,12 @@ public class Test1 {
 
     public static void main(String[] args) {
 
-        int a = 170 + (3*91) + (270) + 160 + 87 + 172 + 78 + 4*85;
-        int b = 18;
-        System.out.println((float) a / b);
+        Integer a = null;
+        function(a);
+        System.out.println(a);
+    }
+
+    private static void function(Integer a) {
+        a = 1;
     }
 }
