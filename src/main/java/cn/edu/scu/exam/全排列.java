@@ -24,49 +24,41 @@ public class 全排列 {
 
     public static void main(String[] args) {
 
-        ArrayList res = new 全排列().Permutation("abac");
-        for (Object re : res) {
+        String[] res = new 全排列().permutation("IIIIIh");
+        for (String re : res) {
             System.out.println(re);
 
         }
     }
 
-    public ArrayList<String> Permutation(String str) {
+    public String[] permutation(String str) {
 
-        // 递归回溯法
-        // 用一个map来表示字符集合，并能解决重复字符问题
-        Map<String, Integer> map = new ConcurrentHashMap<>();// 需要在遍历集合的时候进行集合的增删操作，这里用ConcurrentHashMap
-        for (char c : str.toCharArray()) {
-            map.put(String.valueOf(c), map.getOrDefault(String.valueOf(c), 0) + 1);
-        }
-        LinkedList<String> path = new LinkedList<>();
-        ArrayList<String> res = new ArrayList<>();
+        StringBuilder path = new StringBuilder();
+        List<String> res = new ArrayList<>();
+        boolean[] used = new boolean[str.length()];
+        char[] c = str.toCharArray();
+        // 排序
+        Arrays.sort(c);
 
-        // 用dfs来输出整个全排列，全排列为树顶点到所有叶子节点的所有路径集合
-        permutation(map, path, res);
-        return res;
+        dfs(c,used,path, res);
+        return res.toArray(new String[0]);
 
     }
 
-    public void permutation(Map<String, Integer> map, LinkedList<String> path, List<String> res) {
-        if (map.isEmpty()) {
-            String re = String.join("", path);
-            res.add(re);
+    public void dfs(char[] s,boolean[] used,StringBuilder path, List<String> res) {
+        if(path.length() == used.length){
+            res.add(path.toString());
             return;
+
         }
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            String key = entry.getKey();
-            Integer value = entry.getValue();
-            path.add(key);
-            if (value == 1) {
-                map.remove(key);
-            } else {
-                map.put(key, value - 1);
-            }
-            permutation(map, path, res);
-            // 回溯
-            path.removeLast();
-            map.put(key, map.getOrDefault(key, 0) + 1);
+        for(int i = 0;i < used.length;i++){
+            if(used[i]) continue;
+            if(i > 0 && s[i-1] == s[i] && !used[i-1]) continue;// 剪枝
+            path.append(s[i]);
+            used[i] = true;
+            dfs(s,used,path,res);
+            path.deleteCharAt(path.length()-1);
+            used[i] = false;
         }
     }
 }
