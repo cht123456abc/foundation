@@ -69,4 +69,30 @@ public class 全排列 {
             map.put(key, map.getOrDefault(key, 0) + 1);
         }
     }
+
+    public String[] permutation(String S) {
+        Set<Character> set = new HashSet<>();
+        char[] ss = S.toCharArray();
+        for(char c : ss){
+            set.add(c);
+        }
+        List<String> res = new ArrayList<>();
+        dfs(ss,set,res,new StringBuilder());
+        return res.toArray(new String[0]);
+    }
+
+    public void dfs(char[] S,Set<Character> set,List<String> res,StringBuilder path){
+        if(set.size() == S.length){
+            res.add(path.toString());
+            return;
+        }
+        for(char c : S){
+            if(set.contains(c)) continue;
+            path.append(c);
+            set.add(c);
+            dfs(S,set,res,path);
+            path.deleteCharAt(path.length()-1);
+            set.remove(c);
+        }
+    }
 }
