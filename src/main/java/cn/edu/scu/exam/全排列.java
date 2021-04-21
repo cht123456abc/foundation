@@ -24,7 +24,7 @@ public class 全排列 {
 
     public static void main(String[] args) {
 
-        String[] res = new 全排列().permutation("IIIIIh");
+        String[] res = new 全排列().permutation("iiih");
         for (String re : res) {
             System.out.println(re);
 
