@@ -1,10 +1,7 @@
 package cn.edu.scu.algorithms.exercises.leetcode;
 
-import javafx.util.Pair;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 /**
  * 51. N 皇后
@@ -34,14 +31,14 @@ import java.util.Stack;
  * 皇后彼此不能相互攻击，也就是说：任何两个皇后都不能处于同一条横行、纵行或斜线上。
  */
 public class NQueens_51 {
-    int[] col;// 列
-    int[] rd;// 右下对角线
-    int[] ld;// 左下对角线
+    boolean[] col;// 列
+    boolean[] rd;// 右下对角线
+    boolean[] ld;// 左下对角线
 
     public List<List<String>> solveNQueens(int n) {
-        col = new int[n];
-        rd = new int[2 * n - 1];
-        ld = new int[2 * n - 1];
+        col = new boolean[n];
+        rd = new boolean[2 * n - 1];
+        ld = new boolean[2 * n - 1];
 
         List<List<String>> res = new ArrayList<>();
         List<String> once = new ArrayList<>();
@@ -52,11 +49,11 @@ public class NQueens_51 {
     }
 
     public void dfs(int i,int j,int n,List<List<String>> res,List<String> once) {
-        if(col[j] > 0|| rd[j-i+n-1]>0 || ld[i+j]>0) return;
+        if(col[j]|| rd[j-i+n-1] || ld[i+j]) return;
         // 定下位置
-        col[j]++;
-        rd[j-i+n-1]++;
-        ld[i+j]++;
+        col[j] = true;
+        rd[j-i+n-1] = true;
+        ld[i+j] = true;
         StringBuilder line = new StringBuilder();
         for (int k = 0; k < n; k++) {
             line.append(k == j ? 'Q' : '.');
@@ -75,9 +72,9 @@ public class NQueens_51 {
 
         // 回溯
         once.remove(once.size() - 1);
-        col[j]--;
-        rd[j-i+n-1]--;
-        ld[i+j]--;
+        col[j] = false;
+        rd[j-i+n-1] = false;
+        ld[i+j] = false;
 
     }
 

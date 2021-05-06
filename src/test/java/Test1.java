@@ -7,9 +7,11 @@ public class Test1 {
 
     public static void main(String[] args) {
 
-        Integer a = null;
-        function(a);
+        double a = Math.pow(2,256);
         System.out.println(a);
+
+        System.out.println(Float.MAX_VALUE);
+
     }
 
     private static void function(Integer a) {
