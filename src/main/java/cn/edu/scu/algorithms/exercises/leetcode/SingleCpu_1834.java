@@ -7,13 +7,7 @@ public class SingleCpu_1834 {
     public int[] getOrder(int[][] tasks) {
 
         int n = tasks.length;
-        PriorityQueue<int[]> queue = new PriorityQueue<>((o1, o2) -> {
-            int d = o1[0] - o2[0];
-            if (d == 0) {
-                return o1[1] - o2[1];
-            }
-            return d;
-        });// [processTime,index] // 如果队列里面processTime是相同的，有可能会poll出index更大的task，所以需要先对processTime排序，再对index排序
+        PriorityQueue<int[]> queue = new PriorityQueue<>(Comparator.<int[]>comparingInt(o -> o[0]).thenComparingInt(o -> o[1]));// [processTime,index] // 如果队列里面processTime是相同的，有可能会poll出index更大的task，所以需要先对processTime排序，再对index排序
         int[][] index_enqueueTime = new int[n][2];
         for (int i = 0; i < n; i++) {
             index_enqueueTime[i][0] = i;
