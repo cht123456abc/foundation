@@ -74,7 +74,7 @@ class ST {
 
     // 查询区间最值 T=O(1)
     public int query(int l, int r) {
-        int k = (int)Math.log(r - l + 1);
+        int k = (int)(Math.log(r - l + 1) / Math.log(2));
         return Math.min(dp[l][k], dp[r - (1 << k)+1][k]);
     }
 }
