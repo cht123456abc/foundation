@@ -1,4 +1,4 @@
-package cn.edu.scu.algorithms.st;
+package cn.edu.scu.algorithms.sparse_table;
 
 
 import java.util.Scanner;

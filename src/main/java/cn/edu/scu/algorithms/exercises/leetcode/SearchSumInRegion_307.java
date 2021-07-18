@@ -57,6 +57,64 @@ public class SearchSumInRegion_307 {
         return query(right) - query(left-1);
     }
 
+//    线段树
+//    int[] tree;
+//    int[] nums;
+//    int n;
+//
+//    private void init(int node,int l,int r){
+//        if(l == r){
+//            tree[node] = nums[l];
+//            return;
+//        }
+//        int mid = (l+r) / 2;
+//        init(2*node+1,l,mid);
+//        init(2*node+2,mid+1,r);
+//        tree[node] = tree[2*node+1] + tree[2*node+2];
+//    }
+//
+//    private int query(int node,int l,int r,int i,int j){
+//        if(i > r || j < l) return 0;
+//        if(i <= l && r <= j) return tree[node];
+//        int mid = (l+r) / 2;
+//        int left = query(2*node+1,l,mid,i,j);
+//        int right = query(2*node+2,mid+1,r,i,j);
+//        return left + right;
+//    }
+//
+//
+//    private void update(int node,int l,int r,int index,int e){
+//        if(l == r){
+//            tree[node] = e;
+//            return;
+//        }
+//        int m = l + (r - l ) / 2;
+//        if(index <= m){
+//            update(2*node + 1,l,m,index,e);
+//        }else {
+//            update(2*node + 2,m+1,r,index,e);
+//        }
+//        tree[node] = tree[2*node + 1] + tree[2*node + 2];
+//    }
+//
+//    public NumArray(int[] nums){
+//        int n = nums.length;
+//        this.n = n;
+//        this.nums = nums;
+//        tree = new int[4*n];
+//        init(0,0,n-1);// 建树
+//    }
+//
+//
+//    public void update(int index,int val){
+//        nums[index] = val;
+//        update(0,0,n-1,index,val);
+//    }
+//
+//    public int sumRange(int left,int right){
+//        return query(0,0,n-1,left,right);
+//    }
+
 
 //    // 线段树 T = O(logn)
 //    int[] tree;
