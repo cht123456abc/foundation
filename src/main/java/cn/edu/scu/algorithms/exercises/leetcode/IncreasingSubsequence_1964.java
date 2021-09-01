@@ -56,13 +56,6 @@ import java.util.List;
  */
 public class IncreasingSubsequence_1964{
 
-    public static void main(String[] args) {
-        IncreasingSubsequence_1964 increasingSubsequence_1964 = new IncreasingSubsequence_1964();
-        int[] stack = new int[]{1,2,3,4};
-        System.out.println(increasingSubsequence_1964.upper_bound(stack, 3, 2));
-    }
-
-
     // 单调栈
     public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
         int[] stack = new int[(int) (1e5 + 5)];
@@ -97,7 +90,6 @@ public class IncreasingSubsequence_1964{
         }
         stack[i] = v;
         return i;
-
     }
 
 }
