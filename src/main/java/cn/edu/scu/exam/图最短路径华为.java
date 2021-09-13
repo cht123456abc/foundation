@@ -73,12 +73,12 @@ public class 图最短路径华为 {
     private static Integer dfs(Map<Integer, List<Integer>> graph, int[][] distance,int[][] condi, boolean[] visited,Integer cur, Integer dist) {
 
         if(visited[cur]) return 0;
-        if(cur == dist) {
+        if(cur.equals(dist)) {
             return 0;
         }
         visited[cur] = true;
         List<Integer> edge = graph.get(cur);
-        Integer res = Integer.MAX_VALUE;
+        int res = Integer.MAX_VALUE;
         for (Integer e : edge) {
             visited[e] = true;
             res = Math.min(res,distance[cur][e] + dfs(graph, distance,condi, visited, e, dist));
