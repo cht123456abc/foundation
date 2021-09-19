@@ -56,7 +56,7 @@ import java.util.List;
  */
 public class IncreasingSubsequence_1964{
 
-    // 单调栈
+    // 相当于"最长递增子序列" ： 用数组单调栈解决
     public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
         int[] stack = new int[(int) (1e5 + 5)];
         int top = -1;
