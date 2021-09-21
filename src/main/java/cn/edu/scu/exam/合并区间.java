@@ -17,14 +17,17 @@ public class 合并区间 {
         ArrayList<Interval> res = new ArrayList<>();
         if(intervals.isEmpty()) return res;
 
-        for (int i = 0; i+1 < intervals.size(); i++) {
+        int left = intervals.get(0).start;
+        int right = intervals.get(0).end;
 
+        for (int i = 1; i < intervals.size(); i++) {
             Interval a = intervals.get(i);
-            Interval b = intervals.get(i+1);
-            if (a.end >= b.start) {
-                intervals.set(i + 1, new Interval(a.start, Math.max(a.end,b.end)));
+            if (right >= a.start) {
+                right = Math.max(right, a.end);
             } else {
-                res.add(a);
+                res.add(new Interval(left, right));
+                left = a.start;
+                right = a.end;
             }
         }
         res.add(intervals.get(intervals.size()-1));
