@@ -19,129 +19,122 @@ import java.util.*;
  */
 public class LRUCache_146 {
 
-    // 方法三 用LinkedHashMap 实现自定义LRU缓存结构
-    class LRU<K,V> extends LinkedHashMap<K,V> {
-        private int cap;
+    // 方法二；自定义map 和 双端链表节点
+    // 用一个removeAfterAccess包含 get和put的操作
+    // put节点放入链表队列尾
+    // size超过容量的时候，删除队列头部
 
-        public LRU(int cap) {
-            super(cap, 0.75f,true);
-            this.cap = cap;
-        }
-
-        @Override
-        protected boolean removeEldestEntry(Map.Entry eldest) {
-            // 自实现删除eldest的condition
-            return this.size() > cap;
-        }
+    static class Node {
+        int key;
+        int value;
+        Node pre;
+        Node next;
     }
 
-    private LRU<Integer,Integer> lru;
+    Map<Integer,Node> LRU;
+    Node head;
+    Node tail;
+    int capacity;
+
 
     public LRUCache_146(int capacity) {
-        this.lru = new LRU<>(capacity);
+        LRU = new HashMap<>(capacity);
+        this.capacity = capacity;
+
+    }
+
+    // 访问了的元素放到队列尾
+    private void removeAfterAccess(Node e){
+        if(tail == e) return;
+        // 两个节点以上并且e不为tail
+        Node next = e.next;
+        if(head == e){
+            e.next = null;
+            next.pre = null;
+            head = next;
+        }else{
+            Node pre = e.pre;
+            e.pre = null;
+            e.next = null;
+            pre.next = next;
+            next.pre = pre;
+        }
+        tail.next = e;
+        e.pre = tail;
+        tail = e;
     }
 
     public int get(int key) {
-        return lru.getOrDefault(key, -1);
+        Node e = LRU.get(key);
+        if(e == null){
+            return -1;
+        }
+        removeAfterAccess(e);
+        return e.value;
     }
+
 
     public void put(int key, int value) {
-        lru.put(key, value);
+        int oldV = get(key);
+        Node e;
+        if(oldV == -1){
+            // size到达容量需要删除队列头
+            if(LRU.size() == capacity){
+                Node next = head.next;
+                if(next != null){
+                    head.next = null;
+                    next.pre = null;
+                }
+                LRU.remove(head.key);// 关键，删除了链表，还要删除map中的节点
+                head = next;
+            }
+            e = new Node();
+            e.key = key;
+            e.value = value;
+            LRU.put(key,e);
+            if(LRU.size() == 1){
+                head = tail = e;
+                return;
+            }
+            tail.next = e;
+            e.pre = tail;
+            tail = e;
+        }else{
+            e = tail;
+            e.value = value;
+        }
+
     }
 
-
-    // 方法二：自定义链表节点
-//    class Node{
-//        private Node pre;
-//        private Node next;
-//        private int key;// map中对应的key，用于删除
-//        private int val;
-//        public Node(int value) {
-//            val = value;
+//    // 方法三 用LinkedHashMap 实现自定义LRU缓存结构
+//    class LRU<K,V> extends LinkedHashMap<K,V> {
+//        private int cap;
+//
+//        public LRU(int cap) {
+//            super(cap, 0.75f,true);
+//            this.cap = cap;
 //        }
 //
-//        public Node(int key, int value) {
-//            this.key = key;
-//            val = value;
+//        @Override
+//        protected boolean removeEldestEntry(Map.Entry eldest) {
+//            // 自实现删除eldest的condition
+//            return this.size() > cap;
 //        }
 //    }
 //
-//
-//    Map<Integer,Node> map = new HashMap<>();
-//    Node head = new Node(-1);
-//    Node tail = head;
-//    private int cap;
+//    private LRU<Integer,Integer> lru;
 //
 //    public LRUCache_146(int capacity) {
-//        cap = capacity;
+//        this.lru = new LRU<>(capacity);
 //    }
 //
 //    public int get(int key) {
-//        if (map.containsKey(key)) {
-//            // 删除节点，放入链表尾部
-//            Node node = map.get(key);
-//            Node pre = node.pre;
-//            Node next = node.next;
-//            if(next == null){
-//                // 已经在尾部
-//                return node.val;
-//            }
-//            node.next = null;
-//            node.pre = null;
-//            pre.next = next;
-//            next.pre = pre;
-//            tail.next = node;
-//            node.pre = tail;
-//            tail = node;
-//            return node.val;
-//        } else {
-//            return -1;
-//        }
+//        return lru.getOrDefault(key, -1);
 //    }
-//
 //
 //    public void put(int key, int value) {
-//        // 先看是否存在值
-//        if (!map.containsKey(key)) {
-//            // 判断是否满
-//            int size = map.size();
-//            if (size == cap) {
-//                // 移除第一个元素
-//                Node first = head.next;
-//                head.next = first.next;
-//                if(first.next != null) first.next.pre = head;
-//                first.next = null;
-//                first.pre = null;
-//                // 将map中对应的first的key删除
-//                map.remove(first.key);
-//            }
-//            // 加入队尾
-//            Node node = new Node(key,value);
-//            map.put(key,node);
-//            tail.next = node;
-//            node.pre = tail;
-//            tail = node;
-//            map.put(key, node);
-//        } else {
-//            // 将节点放入队尾,并更新值
-//            Node node = map.get(key);
-//            Node pre = node.pre;
-//            Node next = node.next;
-//            node.val = value;
-//            if(next == null){
-//                // 已经在尾部
-//                return;
-//            }
-//            node.next = null;
-//            node.pre = null;
-//            pre.next = next;
-//            next.pre = pre;
-//            tail.next = node;
-//            node.pre = tail;
-//            tail = node;
-//        }
+//        lru.put(key, value);
 //    }
-
 
     // 方法一 用map和队列
 //    private Deque<Integer> delete_q;
