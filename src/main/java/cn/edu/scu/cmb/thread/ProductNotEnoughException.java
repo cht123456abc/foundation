@@ -1,4 +1,4 @@
-package cn.edu.scu.cmb;
+package cn.edu.scu.cmb.thread;
 
 public class ProductNotEnoughException extends RuntimeException {
 
