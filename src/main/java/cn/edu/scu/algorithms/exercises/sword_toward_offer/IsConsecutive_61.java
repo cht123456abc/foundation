@@ -56,7 +56,8 @@ public class IsConsecutive_61 {
 //        boolean dup = Arrays.stream(nums).filter(a -> a > 0).boxed().collect(Collectors.toSet()).size() != Arrays.stream(nums).filter(a -> a > 0).count();
 //
 //
-//        return !dup && max - min <= 4;
+//        return !dup && max - min <= 4
+
 
 
 
