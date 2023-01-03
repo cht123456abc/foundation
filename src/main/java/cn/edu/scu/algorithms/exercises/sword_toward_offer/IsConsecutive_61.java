@@ -1,6 +1,8 @@
 package cn.edu.scu.algorithms.exercises.sword_toward_offer;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -31,14 +33,30 @@ public class IsConsecutive_61 {
 
 
     public boolean isStraight(int[] nums) {
-        int max = Arrays.stream(nums).max().getAsInt();
-        int min = Arrays.stream(nums).filter(a -> a > 0).min().getAsInt();
-        boolean dup = Arrays.stream(nums).filter(a -> a > 0).boxed().collect(Collectors.toSet()).size() != Arrays.stream(nums).filter(a -> a > 0).count();
+        // 1. 不能有重复(除去大小王)
+        // 2. max - min < 5(除去大小王)
+
+        Set<Integer> rep = new HashSet<>();
+        int max = -1;
+        int min = 999;
+        for(int i = 0;i<nums.length;i++){
+            if(rep.contains(nums[i])) return false;
+
+            if(nums[i] != 0){
+                rep.add(nums[i]);
+                max = Math.max(max,nums[i]);
+                min = Math.min(min,nums[i]);
+            }
+        }
+        return max - min < 5;
 
 
-        return !dup && max - min <= 4;
-
-
+//        int max = Arrays.stream(nums).max().getAsInt();
+//        int min = Arrays.stream(nums).filter(a -> a > 0).min().getAsInt();
+//        boolean dup = Arrays.stream(nums).filter(a -> a > 0).boxed().collect(Collectors.toSet()).size() != Arrays.stream(nums).filter(a -> a > 0).count();
+//
+//
+//        return !dup && max - min <= 4;
 
 
 

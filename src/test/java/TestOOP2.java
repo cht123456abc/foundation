@@ -1,7 +1,7 @@
 import cn.edu.scu.cmb.oop2.Account;
 import cn.edu.scu.cmb.oop2.Client;
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class TestOOP2 {
 
