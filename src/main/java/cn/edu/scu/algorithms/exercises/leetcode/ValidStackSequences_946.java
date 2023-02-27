@@ -30,34 +30,50 @@ import java.util.*;
  */
 public class ValidStackSequences_946 {
 
+
     public boolean validateStackSequences(int[] pushed, int[] popped) {
-        // 只要poped里面存在一个元素，该元素比当前栈顶元素小，就视为invalid。
-        int n = pushed.length;
-        Set<Integer> set = new HashSet<>();// 记录索引，方便查找
+        // 模拟栈
         Stack<Integer> stack = new Stack<>();
-        int ptr = -1;
-        for(int i = 0;i < n;i++){
-            int pop = popped[i];
-            if(set.contains(pop)){
-                if(!stack.peek().equals(pop)) return false;
-                else {
-                    stack.pop();
-                    set.remove(pop);
-                }
-            }else{
-                // 从后续元素中找到
-                for(int j = ptr+1;j < n;j++){
-                    int push = pushed[j];
-                    if(push == pop){
-                        ptr = j;
-                        break;
-                    }
-                    stack.push(push);
-                    set.add(push);
-                }
+        int n = pushed.length;
+        for (int i = 0,j=0; i < n; i++) {
+            stack.push(pushed[i]);
+            while (!stack.isEmpty() && stack.peek().equals(popped[j])) {
+                stack.pop();
+                j++;
             }
+
         }
-        return true;
+        return stack.isEmpty();
     }
+
+//    public boolean validateStackSequences(int[] pushed, int[] popped) {
+//        // 只要poped里面存在一个元素，该元素比当前栈顶元素小，就视为invalid。
+//        int n = pushed.length;
+//        Set<Integer> set = new HashSet<>();// 记录索引，方便查找
+//        Stack<Integer> stack = new Stack<>();
+//        int ptr = -1;
+//        for(int i = 0;i < n;i++){
+//            int pop = popped[i];
+//            if(set.contains(pop)){
+//                if(!stack.peek().equals(pop)) return false;
+//                else {
+//                    stack.pop();
+//                    set.remove(pop);
+//                }
+//            }else{
+//                // 从后续元素中找到
+//                for(int j = ptr+1;j < n;j++){
+//                    int push = pushed[j];
+//                    if(push == pop){
+//                        ptr = j;
+//                        break;
+//                    }
+//                    stack.push(push);
+//                    set.add(push);
+//                }
+//            }
+//        }
+//        return true;
+//    }
 
 }
