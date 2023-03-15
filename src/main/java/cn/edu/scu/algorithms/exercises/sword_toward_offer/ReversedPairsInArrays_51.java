@@ -24,6 +24,7 @@ public class ReversedPairsInArrays_51 {
     }
 
     // 将两个有序数组temp[left..mid] 和 temp[mid + 1..right]合并，并计算合并所得的逆序数
+    // 两个有序数组中的逆序对数计数在于：当把右半部分数组存在较小的数放回到原数组中时，左半部分数组中还剩余的个数等价于当次归并的逆序数。
     public int mergeAndCount(int[] nums,int left,int mid,int right,int[] temp){
         for(int i = left;i <= right;i++){
             temp[i] = nums[i];
@@ -43,7 +44,7 @@ public class ReversedPairsInArrays_51 {
                 nums[k++] = temp[i++];
             }else{
                 nums[k++] = temp[j++];
-                count += (mid+1-i);
+                count += (mid+1-i);// 本次归并逆序数就等价于前半部分数组中还剩余的个数
             }
         }
 
@@ -58,7 +59,7 @@ public class ReversedPairsInArrays_51 {
         int leftCount = reversePairs(nums,left,mid,temp);
         int rightCount = reversePairs(nums,mid + 1,right,temp);
 
-        if(nums[mid] <= nums[mid + 1]) return leftCount + rightCount;
+        if(nums[mid] <= nums[mid + 1]) return leftCount + rightCount;// 两个有序数组组成的大数组本身正序，就不必再合并
         return leftCount + rightCount + mergeAndCount(nums,left,mid,right,temp);
     }
 }

@@ -105,7 +105,7 @@ class SegmentTree {
  */
 class BIT {
     int[] source;// 源数据
-    int[] tree;// 树状数组
+    int[] tree;// 树状数组，从下标1开始
 
     public BIT(int[] source) {
         this.source = source;
