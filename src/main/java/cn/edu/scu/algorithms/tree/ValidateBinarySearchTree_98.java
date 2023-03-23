@@ -46,22 +46,20 @@ public class ValidateBinarySearchTree_98 {
     }
 
 
+    Integer last = null;
     // 利用中序遍历
     public boolean isValidBST1(TreeNode root) {
         // 以中序遍历判断是否是由小到大的序列
-        Integer[] last_val = new Integer[]{Integer.MIN_VALUE};
-        Boolean[] begin = new Boolean[]{true};
-        return traverse(root,last_val,begin);
+        return traverse(root);
     }
 
 
-    public boolean traverse(TreeNode root,Integer[] last_val,Boolean[] begin){
+    public boolean traverse(TreeNode root){
         if(root == null) return true;
-        boolean left = traverse(root.left,last_val,begin);
-        if(last_val[0] >= root.val && !begin[0]) return false;
-        last_val[0] = root.val;
-        begin[0] = false;
-        boolean right = traverse(root.right,last_val,begin);
+        boolean left = traverse(root.left);
+        if(last != null && last >= root.val) return false;
+        last= root.val;
+        boolean right = traverse(root.right);
         return left && right;
     }
 }

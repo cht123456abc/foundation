@@ -1,6 +1,10 @@
 package cn.edu.scu.algorithms.exercises.sword_toward_offer;
 
 
+import cn.edu.scu.Main;
+
+import java.util.Arrays;
+
 /**
  * 剑指 Offer 51. 数组中的逆序对
  * 在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数。
@@ -61,5 +65,56 @@ public class ReversedPairsInArrays_51 {
 
         if(nums[mid] <= nums[mid + 1]) return leftCount + rightCount;// 两个有序数组组成的大数组本身正序，就不必再合并
         return leftCount + rightCount + mergeAndCount(nums,left,mid,right,temp);
+    }
+
+    // 离散化 + 树状数组  比较牛逼的思想
+    public int reversePairs2(int[] nums) {
+        int n = nums.length;
+        int[] tmp = new int[n];
+        System.arraycopy(nums, 0, tmp, 0, n);
+        // 离散化 用于解约空间，将稀疏的数组离散为紧凑的数组
+        Arrays.sort(tmp);// 先排序
+        for (int i = 0; i < n; ++i) {
+            nums[i] = Arrays.binarySearch(tmp, nums[i]) + 1;// 二分查找该位置在temp中的位置，用位置次序（大小关系）来代替原数组
+        }
+        // 树状数组统计逆序对
+        BIT bit = new BIT(n);
+        int ans = 0;
+        for (int i = n - 1; i >= 0; --i) {// 从后往前对离散化数组进行遍历
+            ans += bit.query(nums[i] - 1);
+            bit.update(nums[i]);
+        }
+            return ans;
+        }
+}
+
+// 树状数组 用于计算离散化后数组个数统计的前缀和
+class BIT {
+    private int[] tree;
+    private int n;
+
+    public BIT(int n) {
+        this.n = n;
+        this.tree = new int[n + 1];
+    }
+
+    public int lowbit(int x) {
+        return x & (-x);
+    }
+
+    public int query(int x) {
+        int ret = 0;
+        while (x != 0) {
+            ret += tree[x];
+            x -= lowbit(x);
+        }
+        return ret;
+    }
+
+    public void update(int x) {
+        while (x <= n) {
+            ++tree[x];
+            x += lowbit(x);
+        }
     }
 }
