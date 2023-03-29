@@ -1,8 +1,6 @@
 package cn.edu.scu.algorithms.exercises.sword_toward_offer;
 
 
-import cn.edu.scu.Main;
-
 import java.util.Arrays;
 
 /**
