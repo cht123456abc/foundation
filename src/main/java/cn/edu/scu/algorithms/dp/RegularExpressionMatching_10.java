@@ -56,12 +56,14 @@ public class RegularExpressionMatching_10 {
         dp[0][0] = true;
         for(int i = 0;i <=n;i++){
             for(int j = 1;j<=m;j++){
+                // 如果是'a*'组合
                 if(p.charAt(j-1) == '*'){
-                    dp[i][j] = dp[i][j-2];
+                    dp[i][j] = dp[i][j-2];// 如果不匹配，那么就扔掉 'a*'的组合
                     if(match(s,p,i,j-1)){
-                        dp[i][j] = dp[i][j] || dp[i-1][j];
+                        dp[i][j] = dp[i][j] || dp[i-1][j];// 如果匹配，将该字符扔掉，
                     }
                 }else{
+                    // 如果不是'a*'组合
                     if(match(s,p,i,j)) dp[i][j] = dp[i-1][j-1];
                 }
             }
