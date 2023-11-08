@@ -28,9 +28,6 @@ public class BFS最短路 {
                 graph[Integer.parseInt(ab[0])-1][Integer.parseInt(ab[1])-1] = 1;
                 k--;
             }
-
-
-
             // 测试次数N
             int N = Integer.parseInt(scanner.nextLine());
             k = N;

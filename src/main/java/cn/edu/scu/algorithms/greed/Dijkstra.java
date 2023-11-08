@@ -18,7 +18,7 @@ public class Dijkstra {
         int n = graph.length;
         visited[start] = true;
 
-        // 外层循环遍历每个节点
+        // 外层循环遍历每个节点 每次循环决定了一个离start最短的距离
         for (int i = 0; i < n; i++) {
             // 内循环一，找到visited = false的，距离start最短的顶点作为middle
             int middle = 0;

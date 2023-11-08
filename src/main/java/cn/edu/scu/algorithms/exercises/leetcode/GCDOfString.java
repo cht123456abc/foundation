@@ -18,5 +18,6 @@ public class GCDOfString {
         }
         return b;
 
+
     }
 }
