@@ -1,7 +1,5 @@
 package cn.edu.scu.algorithms.exercises.leetcode;
 
-import cn.edu.scu.Solution;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeSet;

@@ -45,8 +45,6 @@ public class DeadLock {
 
         new Thread(T::getA).start();
 
-        new Thread(() -> {
-            T.getB();
-        }).start();
+        new Thread(T::getB).start();
     }
 }
